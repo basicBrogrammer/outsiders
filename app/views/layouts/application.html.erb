@@ -13,23 +13,14 @@
 
   <body>
   <nav class="top-bar" data-topbar role="navigation">
-    <ul class="title-area">
-      <li class="name">
-
-      </li>
-      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-    </ul>
-
     <section class="top-bar-section">
       <!-- Right Nav Section -->
       <ul class="right">
-        <li class="active"><a href="#">Right Button Active</a></li>
         <li class="has-dropdown">
-          <a href="#">Right Button Dropdown</a>
+          <a href="#">Options</a>
           <ul class="dropdown">
             <li><a href="#">First link in dropdown</a></li>
-            <li class="active"><a href="#">Active link in dropdown</a></li>
+            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %>></li>
           </ul>
         </li>
       </ul>
@@ -40,16 +31,25 @@
         <li><%=link_to "Profile", current_user %></li>
         <li><%=link_to "Users", users_path %></li>
         <li><%=link_to "Photos", user_photos_path(current_user) %></li>
-        <li><a href="#" data-reveal-id="myModal">New Photo</a></li>
+        <li><a href="#" data-reveal-id="photoModal">New Photo</a></li>
+        <li><%=link_to "Videos", user_videos_path(current_user) %></li>
+        <li><a href="#" data-reveal-id="videoModal">New Video</a></li>
       </ul>
     </section>
   </nav>
 
-    <%= yield %>
-      <div id="myModal" class="reveal-modal" data-reveal>
-        <%== render "welcome/photo_form" %>
-        <a class="close-reveal-modal">&#215;</a>
-      </div>
-    <%= javascript_include_tag "application" %>
+    <div class="row">
+        <%= yield %>
+          <div id="photoModal" class="reveal-modal" data-reveal>
+            <%= render "welcome/photo_form" %>
+            <a class="close-reveal-modal">&#215;</a>
+          </div>
+
+          <div id="videoModal" class="reveal-modal" data-reveal>
+            <%== render "welcome/video_form" %>
+            <a class="close-reveal-modal">&#215;</a>
+          </div>
+        <%= javascript_include_tag "application" %>
+    </div>
   </body>
 </html>

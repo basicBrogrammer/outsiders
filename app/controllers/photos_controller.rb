@@ -27,13 +27,13 @@ class PhotosController < ApplicationController
 
   def destroy
     @photo.destroy
-    redirect_to dashboard_show_path, notice: 'Photo was successfully destroyed.'
+    redirect_to root_path, notice: 'Photo was successfully destroyed.'
   end
 
   private
 
   def set_photo
-    @photo - Photo.find[params[:id]]
+    @photo = Photo.find[params[:id]]
   end
 
   def photo_params

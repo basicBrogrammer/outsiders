@@ -1,0 +1,14 @@
+.row
+  h1 video#index
+  ul.small-block-grid-2.medium-block-grid-3.large-block-grid-4
+    - @videos.each do |video|
+      li
+        = video.movie
+        = link_to image_tag(video_thumb(video.movie_embed)), "#", "data-reveal-id" => "youtubeModal"
+        = video.summary
+        = video.city
+        = video.state
+
+      #youtubeModal.reveal-modal data-reveal=""
+        = video_embed(video.movie_embed)
+        a.close-reveal-modal &#215

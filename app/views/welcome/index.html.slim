@@ -1,25 +1,38 @@
 h1 Outsiders Hunting Channel
-.large-6.columns
-  - if user_signed_in?
+
+- if user_signed_in?
+  .large-4.columns
+   .panel
     = current_user.email
     br
     = image_tag @profpic.image.thumb('200x200#').url if @profpic.image_stored?
     br
     a href="#" data-reveal-id="myModal"class="tiny round button" Add a Photo
-  -else
-    .form_panel
-      = simple_form_for resource, as: resource_name, url: session_path(resource_name) do |f|
-        = devise_error_messages!
-        = f.email_field :email, autofocus: true, placeholder: "E-mail"
-        = f.password_field :password, autocomplete: "off", placeholder: "Password"
-        = f.submit "Sign In", class: "tiny round button"
-        br
-        = link_to "Forgot your Password?", new_password_path(:user)
-      = simple_form_for resource, as: resource_name, url: registration_path(resource_name) do |f|
-        = devise_error_messages!
-        = f.email_field :email, autofocus: true, placeholder: "E-mail"
-        = f.password_field :password, autocomplete: "off", placeholder: "Password"
-        = f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password Confirmation"
-        = f.submit "Sign Up", class: "tiny round button"
+  .large-8.columns
+    ul
+      - @videos.each do |video|
+       .panel
+        li
+          = video.movie
+          = video_embed(video.movie_embed)
+          = video.summary
+          = video.city
+          = video.state
+
+-else
+  .form_panel
+    = simple_form_for resource, as: resource_name, url: session_path(resource_name) do |f|
+      = devise_error_messages!
+      = f.email_field :email, autofocus: true, placeholder: "E-mail"
+      = f.password_field :password, autocomplete: "off", placeholder: "Password"
+      = f.submit "Sign In", class: "tiny round button"
+      br
+      = link_to "Forgot your Password?", new_password_path(:user)
+    = simple_form_for resource, as: resource_name, url: registration_path(resource_name) do |f|
+      = devise_error_messages!
+      = f.email_field :email, autofocus: true, placeholder: "E-mail"
+      = f.password_field :password, autocomplete: "off", placeholder: "Password"
+      = f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password Confirmation"
+      = f.submit "Sign Up", class: "tiny round button"
 
 

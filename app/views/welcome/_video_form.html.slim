@@ -1,0 +1,8 @@
+= simple_form_for :video, url: user_videos_path(current_user) do |f|
+  = f.file_field :movie
+  = f.input :movie_embed, label: "Paste a Youtube or other video link:"
+  = f.input :summary
+  = f.input :city
+  = f.input :state
+  = f.input :huntType, collection: ["duck", "deer"], label: "Select the Type of hunt:"
+  = f.submit class: "tiny round button"

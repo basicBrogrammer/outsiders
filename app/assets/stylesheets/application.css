@@ -15,3 +15,24 @@
  *= require foundation_and_overrides
 
  */
+body{
+    background: url("mossy-oak.jpg");
+
+}
+.top-bar{
+    background: #ff6600;
+}
+.top-bar-section li:not(.has-form) a:not(.button){
+    background: #ff6600;
+    border-left: solid;
+    border-left-width: 1px;
+    border-left-color:darkgreen ;
+    color: darkgreen;
+
+}
+.row{
+    background: rgba(18, 85, 43, 0.78);
+}
+.panel{
+    background: #f5e7d4;
+}

@@ -1,0 +1,7 @@
+.row
+    h1 Users#show
+
+    = @user.email
+    br
+    = image_tag @profpic.image.thumb('200x200#').url if @profpic
+

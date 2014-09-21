@@ -1,0 +1,9 @@
+.row
+ h1 Users#index
+ ul.small-block-grid-2.medium-block-grid-3.large-block-grid-4
+   - @users.each do |user|
+    - profpic = user.photos.find_by(profile: true)
+    = link_to
+      li
+        = image_tag profpic.image.thumb('150x150#').url if profpic.image_stored?
+        = link_to "#{user.email}", user_path(user)

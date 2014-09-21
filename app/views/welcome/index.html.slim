@@ -1,6 +1,12 @@
 h1 Outsiders Hunting Channel
 .large-6.columns
-  - unless user_signed_in?
+  - if user_signed_in?
+    = current_user.email
+    br
+    = image_tag @profpic.image.thumb('200x200#').url if @profpic.image_stored?
+    br
+    a href="#" data-reveal-id="myModal"class="tiny round button" Add a Photo
+  -else
     .form_panel
       = simple_form_for resource, as: resource_name, url: session_path(resource_name) do |f|
         = devise_error_messages!
@@ -15,9 +21,5 @@ h1 Outsiders Hunting Channel
         = f.password_field :password, autocomplete: "off", placeholder: "Password"
         = f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password Confirmation"
         = f.submit "Sign Up", class: "tiny round button"
-  = current_user.email
-  br
-  = image_tag @profpic.image.thumb('200x200#').url if @profpic.image_stored?
-  br
-  = render "photo_form"
+
 

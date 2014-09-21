@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  post 'photos/create'
-
-  delete 'photos/destroy'
-
-  get 'dashboard/show'
+  resources :users, only: [:show, :index] do
+    resources :photos
+    post "photos/profpic"
+  end
 
   get 'welcome/index'
 

@@ -12,44 +12,49 @@
   </head>
 
   <body>
-  <nav class="top-bar" data-topbar role="navigation">
-    <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="right">
-        <li class="has-dropdown">
-          <a href="#">Options</a>
-          <ul class="dropdown">
-            <li><a href="#">First link in dropdown</a></li>
-            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %>></li>
+  <% if user_signed_in? %>
+      <nav class="top-bar" data-topbar role="navigation">
+        <section class="top-bar-section">
+          <!-- Right Nav Section -->
+          <ul class="right">
+            <li class="has-dropdown">
+              <a href="#">Options</a>
+              <ul class="dropdown">
+                <li><a href="#">First link in dropdown</a></li>
+                <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %>></li>
+              </ul>
+            </li>
           </ul>
-        </li>
-      </ul>
 
-      <!-- Left Nav Section -->
-      <ul class="left">
-        <li><%=link_to "Home", root_path %></li>
-        <li><%=link_to "Profile", current_user %></li>
-        <li><%=link_to "Users", users_path %></li>
-        <li><%=link_to "Photos", user_photos_path(current_user) %></li>
-        <li><a href="#" data-reveal-id="photoModal">New Photo</a></li>
-        <li><%=link_to "Videos", user_videos_path(current_user) %></li>
-        <li><a href="#" data-reveal-id="videoModal">New Video</a></li>
-      </ul>
-    </section>
-  </nav>
+          <!-- Left Nav Section -->
+          <ul class="left">
+            <li><%=link_to "Home", root_path %></li>
+            <li><%=link_to "Profile", current_user %></li>
+            <li><%=link_to "Users", users_path %></li>
+            <li><%=link_to "Photos", user_photos_path(current_user) %></li>
+            <li><a href="#" data-reveal-id="photoModal">New Photo</a></li>
+            <li><%=link_to "Videos", user_videos_path(current_user) %></li>
+            <li><a href="#" data-reveal-id="videoModal">New Video</a></li>
+          </ul>
+        </section>
+      </nav>
+      <div id="photoModal" class="reveal-modal" data-reveal>
+        <%= render "welcome/photo_form" %>
+        <a class="close-reveal-modal">&#215;</a>
+      </div>
 
-    <div class="row">
-        <%= yield %>
-          <div id="photoModal" class="reveal-modal" data-reveal>
-            <%= render "welcome/photo_form" %>
-            <a class="close-reveal-modal">&#215;</a>
-          </div>
+      <div id="videoModal" class="reveal-modal" data-reveal>
+        <%== render "welcome/video_form" %>
+        <a class="close-reveal-modal">&#215;</a>
+      </div>
 
-          <div id="videoModal" class="reveal-modal" data-reveal>
-            <%== render "welcome/video_form" %>
-            <a class="close-reveal-modal">&#215;</a>
-          </div>
-        <%= javascript_include_tag "application" %>
-    </div>
+  <% end %>
+  <div class="row">
+    <%= yield %>
+
+    <%= javascript_include_tag "application" %>
+  </div>
+
+
   </body>
 </html>

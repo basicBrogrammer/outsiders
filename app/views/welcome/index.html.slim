@@ -18,12 +18,24 @@ h1 Outsiders Hunting Channel
         li#videos
           /= video.movie
 
-          = video.get_upvotes.size
+
           br
-          = video.get_dislikes.size
-          = button_to "Like", {action: "like", vote: video.id}
-          = button_to "Dislike", {action: "dislike", vote: video.id}
+
           = video_embed(video.movie_embed)
+          = video.get_upvotes.size
+          - if current_user.voted_up_on? video
+            = link_to "#{fa_icon "thumbs-up 2x"}".html_safe, welcome_like_path(vote:video.id), method: :post, class: "up"
+          - else
+            = link_to "#{fa_icon "thumbs-o-up 2x"}".html_safe, welcome_like_path(vote:video.id), method: :post, class: "up"
+          = video.get_dislikes.size
+          - if current_user.voted_down_on? video
+            = link_to "#{fa_icon "thumbs-down 2x"}".html_safe, welcome_dislike_path(vote:video.id), method: :post, class:"down"
+          - else
+            = link_to "#{fa_icon "thumbs-o-down 2x"}".html_safe, welcome_dislike_path(vote:video.id), method: :post, class:"down"
+          = video.user.email
+
+
+
           /br
           //= video.movie_embed
           /= video.summary

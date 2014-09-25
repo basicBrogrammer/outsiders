@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :photos
+  acts_as_voter
 
 
   def profpic(photo)

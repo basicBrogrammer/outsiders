@@ -5,7 +5,12 @@ Rails.application.routes.draw do
     post "photos/profpic"
   end
 
+  get 'welcome/deer'
+  get 'welcome/duck'
   get 'welcome/index'
+  post "welcome/like"
+  post "welcome/dislike"
+
 
   devise_for :users
 

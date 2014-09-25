@@ -12,44 +12,59 @@
   </head>
 
   <body>
-  <% if user_signed_in? %>
-      <nav class="top-bar" data-topbar role="navigation">
-        <section class="top-bar-section">
-          <!-- Right Nav Section -->
-          <ul class="right">
-            <li class="has-dropdown">
-              <a href="#">Options</a>
-              <ul class="dropdown">
-                <li><a href="#">First link in dropdown</a></li>
-                <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %>></li>
-              </ul>
-            </li>
-          </ul>
 
-          <!-- Left Nav Section -->
-          <ul class="left">
-            <li><%=link_to "Home", root_path %></li>
-            <li><%=link_to "Profile", current_user %></li>
-            <li><%=link_to "Users", users_path %></li>
-            <li><%=link_to "Photos", user_photos_path(current_user) %></li>
-            <li><a href="#" data-reveal-id="photoModal">New Photo</a></li>
-            <li><%=link_to "Videos", user_videos_path(current_user) %></li>
-            <li><a href="#" data-reveal-id="videoModal">New Video</a></li>
-          </ul>
-        </section>
-      </nav>
-      <div id="photoModal" class="reveal-modal" data-reveal>
-        <%= render "welcome/photo_form" %>
-        <a class="close-reveal-modal">&#215;</a>
-      </div>
-
-      <div id="videoModal" class="reveal-modal" data-reveal>
-        <%== render "welcome/video_form" %>
-        <a class="close-reveal-modal">&#215;</a>
-      </div>
-
-  <% end %>
   <div class="row">
+    <div class="top-ad-logo">
+        <div class="large-3 columns">
+            <%= image_tag "top-test-left.png", size: "300x150"%>
+        </div>
+
+        <div class="large-6 columns">
+          <%= image_tag "top-test-mid.png"%>
+        </div>
+
+        <div class="large-3 columns">
+          <%= image_tag "top-test-right.png"%>
+        </div>
+
+    </div>
+    <% if user_signed_in? %>
+        <nav class="top-bar" data-topbar role="navigation">
+          <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+              <li class="has-dropdown">
+                <a href="#">Options</a>
+                <ul class="dropdown">
+                  <li><a href="#">First link in dropdown</a></li>
+                  <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %>></li>
+                </ul>
+              </li>
+            </ul>
+
+            <!-- Left Nav Section -->
+            <ul class="left">
+              <li><%=link_to "Home", root_path %></li>
+              <li><%=link_to "Profile", current_user %></li>
+              <li><%=link_to "Users", users_path %></li>
+              <li><%=link_to "Photos", user_photos_path(current_user) %></li>
+              <li><a href="#" data-reveal-id="photoModal">New Photo</a></li>
+              <li><%=link_to "Videos", user_videos_path(current_user) %></li>
+              <li><a href="#" data-reveal-id="videoModal">New Video</a></li>
+            </ul>
+          </section>
+        </nav>
+        <div id="photoModal" class="reveal-modal" data-reveal>
+          <%= render "welcome/photo_form" %>
+          <a class="close-reveal-modal">&#215;</a>
+        </div>
+
+        <div id="videoModal" class="reveal-modal" data-reveal>
+          <%== render "welcome/video_form" %>
+          <a class="close-reveal-modal">&#215;</a>
+        </div>
+
+    <% end %>
     <%= yield %>
 
     <%= javascript_include_tag "application" %>

@@ -19,11 +19,16 @@ body{
     background: url("mossy-oak.jpg");
     background-attachment: fixed;
 }
+
+.top-ad-logo{
+    height: 150px;
+    width: 100%;
+}
 .top-bar{
-    background: #ff6600;
+    background: url("navtest.png");
 }
 .top-bar-section li:not(.has-form) a:not(.button){
-    background: #ff6600;
+    background: url("navtest.png");
     border-left: solid;
     border-left-width: 1px;
     border-left-color:darkgreen ;
@@ -31,8 +36,20 @@ body{
 
 }
 .row{
-    background: rgba(18, 85, 43, 0.78);
+    background: rgba(17, 52, 26, 0.78);
 }
 .panel{
-    background: #f5e7d4;
+    background: #d9cbb9;
+    padding: 10px;
+    border-radius: 2%;
+
+}
+li#videos{
+    width: 235px;
+    margin-left: 15px;
+
+    list-style: none;
+}
+.tiny.round.button{
+    background:url("navtest.png") ;
 }

@@ -28,6 +28,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     acts_as_follower (0.2.1)
+    acts_as_votable (0.10.0)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
     builder (3.2.2)
@@ -166,6 +167,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_follower
+  acts_as_votable
   coffee-rails (~> 4.0.0)
   devise
   dragonfly

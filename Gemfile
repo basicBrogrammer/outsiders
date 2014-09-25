@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 
 gem 'acts_as_follower'
+gem 'acts_as_votable'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
 gem 'dragonfly'

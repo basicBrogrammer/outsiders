@@ -1,0 +1,25 @@
+h1 Outsiders Hunting Channel
+
+
+.large-3.columns
+  .panel
+    = current_user.email
+    br
+    = image_tag @profpic.image.thumb('200x200#').url if @profpic.image_stored?
+    br
+    a href="#" data-reveal-id="myModal"class="tiny round button" Add a Photo
+.large-7.columns
+  = link_to "All",welcome_index_path, class: "tiny round button"
+  = link_to "Deer", welcome_deer_path, class: "tiny round button"
+  = link_to "Duck", welcome_duck_path, class: "tiny round button"
+  ul
+    - @videos.each do |video|
+      .panel
+        li#videos
+          /= video.movie
+          = video_embed(video.movie_embed)
+            /br
+            //= video.movie_embed
+            /= video.summary
+            /= video.city
+            /= video.state

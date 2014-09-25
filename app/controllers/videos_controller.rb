@@ -1,5 +1,18 @@
 class VideosController < ApplicationController
   before_action :set_photo, only: [:destroy]
+
+  def like
+    video = params{:vote}
+    video.liked_by current_user
+    redirect_to :back
+  end
+
+  def dislike
+    video = params{:vote}
+    video.downvote_from current_user
+    redirect_to :back
+  end
+
   def index
     @videos = Video.where(user_id: params[:user_id])
   end

@@ -24,7 +24,7 @@ Photo.create(description:'user three photo 3',image: File.open(File.join(Rails.r
 
 Video.create(movie_embed:'https://www.youtube.com/watch?v=J4UwwYu_JiU',summary:"user one video 1", city:"whiteville", state:"nc", user_id: userone.id, huntType: "duck")
 Video.create(movie_embed:'https://www.youtube.com/watch?v=ITtvyl3t4MQ',summary:"user two video 1", city:"raleigh", state:"ca", user_id: usertwo.id, huntType: "duck")
-Video.create(movie_embed:'https://www.youtube.com/watch?v=iOrG87EOep0',summary:"user three video 1", city:"clemmens", state:"co", user_id: userthree.id, huntType: "duck")
+Video.create(movie_embed:'https://www.youtube.com/watch?v=dmwa75-mtek',summary:"user three video 1", city:"clemmens", state:"co", user_id: userthree.id, huntType: "duck")
 
 Video.create(movie_embed:'https://www.youtube.com/watch?v=CDDIT2eq7Yg',summary:"user one video 2", city:"thomasville", state:"nc", user_id: userone.id, huntType: "duck")
 Video.create(movie_embed:'https://www.youtube.com/watch?v=QZpmCIeZ8Bc',summary:"user two video 2", city:"atlanta", state:"ga", user_id: usertwo.id, huntType: "deer")

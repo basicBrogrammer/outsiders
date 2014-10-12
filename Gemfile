@@ -16,7 +16,7 @@ gem 'oembedr'
 gem 'pg'
 gem 'private_pub'
 gem 'rails', '4.1.4'
-gem "rails_12factor"
+gem "rails_12factor", group: :production
 gem 'sass-rails', '~> 4.0.3'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'simple_form'

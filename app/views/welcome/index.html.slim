@@ -1,61 +1,37 @@
-h1 Outsiders Hunting Channel
-
-- if user_signed_in?
-  .large-3.columns
-   .panel
-    = current_user.email
-    br
-    = image_tag @profpic.image.thumb('200x200#').url if @profpic.image_stored?
-    br
-    a href="#" data-reveal-id="myModal"class="tiny round button" Add a Photo
-  .large-7.columns
-    = link_to "All",welcome_index_path, class: "tiny round button"
-    = link_to "Deer", welcome_deer_path, class: "tiny round button"
-    = link_to "Duck", welcome_duck_path, class: "tiny round button"
-    ul
-      - @videos.each do |video|
-       .panel
-        li#videos
-          /= video.movie
-
-
-          br
-
-          = video_embed(video.movie_embed)
-          = video.get_upvotes.size
-          - if current_user.voted_up_on? video
-            = link_to "#{fa_icon "thumbs-up 2x"}".html_safe, welcome_like_path(vote:video.id), method: :post, class: "up"
-          - else
-            = link_to "#{fa_icon "thumbs-o-up 2x"}".html_safe, welcome_like_path(vote:video.id), method: :post, class: "up"
-          = video.get_dislikes.size
-          - if current_user.voted_down_on? video
-            = link_to "#{fa_icon "thumbs-down 2x"}".html_safe, welcome_dislike_path(vote:video.id), method: :post, class:"down"
-          - else
-            = link_to "#{fa_icon "thumbs-o-down 2x"}".html_safe, welcome_dislike_path(vote:video.id), method: :post, class:"down"
-          = video.user.email
-
-
-
-          /br
-          //= video.movie_embed
-          /= video.summary
-          /= video.city
-          /= video.state
-
--else
-  .form_panel
-    = simple_form_for resource, as: resource_name, url: session_path(resource_name) do |f|
-      = devise_error_messages!
-      = f.email_field :email, autofocus: true, placeholder: "E-mail"
-      = f.password_field :password, autocomplete: "off", placeholder: "Password"
-      = f.submit "Sign In", class: "tiny round button"
+.home_container
+  - if user_signed_in?
+    .large-3.columns
+     .panel
+      = current_user.username
       br
-      = link_to "Forgot your Password?", new_password_path(:user)
-    = simple_form_for resource, as: resource_name, url: registration_path(resource_name) do |f|
-      = devise_error_messages!
-      = f.email_field :email, autofocus: true, placeholder: "E-mail"
-      = f.password_field :password, autocomplete: "off", placeholder: "Password"
-      = f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password Confirmation"
-      = f.submit "Sign Up", class: "tiny round button"
+      = image_tag @profpic.image.thumb('200x200#').url if @profpic.image_stored?
+    .large-7.columns
+      = link_to "All",welcome_index_path, class: "tiny round button"
+      = link_to "Deer", welcome_deer_path, class: "tiny round button"
+      = link_to "Duck", welcome_duck_path, class: "tiny round button"
 
+      = render "videos"
+    .large-2.columns
+     div
+  -else
+    .large-4.columns
+      = simple_form_for resource, as: resource_name, url: session_path(resource_name) do |f|
+        = devise_error_messages!
+        = f.email_field :email, autofocus: true, placeholder: "E-mail"
+        = f.password_field :password, autocomplete: "off", placeholder: "Password"
+        = f.submit "Sign In", class: "tiny round button"
+        br
+        = link_to "Forgot your Password?", new_password_path(:user)
+      br
+      br
 
+      = simple_form_for resource, as: resource_name, url: registration_path(resource_name) do |f|
+        = devise_error_messages!
+        = f.input :username, placeholder: "Username", label: false
+        = f.email_field :email, autofocus: true, placeholder: "E-mail"
+        = f.password_field :password, autocomplete: "off", placeholder: "Password"
+        = f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password Confirmation"
+        = f.submit "Sign Up", class: "tiny round button"
+
+    .large-8.columns
+        = image_tag "usertwo2.jpeg", size: "600"

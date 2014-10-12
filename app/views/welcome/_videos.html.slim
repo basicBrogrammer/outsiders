@@ -1,0 +1,13 @@
+ul
+  - @videos.each do |video|
+   - @video = video
+   .panel
+    li#videos
+      br
+      = video_embed(@video.movie_embed)
+      div id="likeable-#{video.id}"
+         = render "likeable"
+      #author
+        | Video by : #{video.user.username}
+
+

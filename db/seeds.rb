@@ -6,9 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-userone = User.create(email: 'userone@email.com', password: 'password')
-usertwo = User.create(email: 'usertwo@email.com', password: 'password')
-userthree = User.create(email: 'userthree@email.com', password: 'password')
+userone = User.create(email: 'userone@email.com', username: "user1", password: 'password')
+usertwo = User.create(email: 'usertwo@email.com', username: "user2", password: 'password')
+userthree = User.create(email: 'userthree@email.com', username: "user3", password: 'password')
 
 Photo.create(description:'user one photo 1',image: File.open(File.join(Rails.root, 'app/assets/images/userone1.jpeg')), user_id: userone.id, profile: true )
 Photo.create(description:'user two photo 1',image: File.open(File.join(Rails.root, 'app/assets/images/usertwo1.jpeg')), user_id: usertwo.id, profile: true )

@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.1.2'
 
 gem 'acts_as_follower'
 gem 'acts_as_votable'
@@ -13,7 +14,9 @@ gem 'jquery-rails'
 gem 'mailboxer'
 gem 'oembedr'
 gem 'pg'
+gem 'private_pub'
 gem 'rails', '4.1.4'
+gem "rails_12factor"
 gem 'sass-rails', '~> 4.0.3'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'simple_form'

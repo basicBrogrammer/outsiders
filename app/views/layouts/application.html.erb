@@ -3,11 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--<link href='http://fonts.googleapis.com/css?family=Anton|Muli|Amatic+SC' rel='stylesheet' type='text/css'>-->
+    <link href='http://fonts.googleapis.com/css?family=Fjalla+One|Archivo+Narrow|Cuprum|Pathway+Gothic+One' rel='stylesheet' type='text/css'>
 
     <title><%= content_for?(:title) ? yield(:title) : "The Outsiders" %></title>
     <%= favicon_link_tag 'favicon.ico' %>
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "vendor/modernizr", "application" %>
     <%= csrf_meta_tags %>
   </head>
 
@@ -16,15 +18,22 @@
   <div class="row">
     <div class="top-ad-logo">
         <div class="large-3 columns">
-            <%= image_tag "top-test-left.png", size: "300x150"%>
+            <%= image_tag "logo3.png", class: "logo" %>
         </div>
 
-        <div class="large-6 columns">
-          <%= image_tag "top-test-mid.png"%>
+        <div class="large-6 columns top-ad">
+          <%= image_tag "top-ad.png"%>
         </div>
 
-        <div class="large-3 columns">
-          <%= image_tag "top-test-right.png"%>
+        <div class="large-3 columns ">
+          <ul class="inline-list" id="social-media">
+            <li> <%= link_to "#{image_tag "webicon-facebook.png"}".html_safe, "www.facebook.com" %></li>
+            <li> <%= link_to "#{image_tag "webicon-twitter.png"}".html_safe, "www.twitter.com" %></li>
+            <li> <%= link_to "#{image_tag "webicon-youtube.png"}".html_safe, "www.youtube.com"%></li>
+
+          </ul>
+
+
         </div>
 
     </div>
@@ -60,7 +69,7 @@
         </div>
 
         <div id="videoModal" class="reveal-modal" data-reveal>
-          <%== render "welcome/video_form" %>
+          <%= render "welcome/video_form" %>
           <a class="close-reveal-modal">&#215;</a>
         </div>
 

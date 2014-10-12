@@ -1,0 +1,14 @@
+= @video.get_upvotes.size
+- if current_user.voted_up_on? @video
+  = link_to "#{fa_icon "thumbs-up 2x"}".html_safe,
+  welcome_like_path(vote:@video.id), method: :post, class: "up", remote: true
+- else
+  = link_to "#{fa_icon "thumbs-o-up 2x"}".html_safe,
+  welcome_like_path(vote:@video.id), method: :post, class: "up", remote: true
+= @video.get_dislikes.size
+- if current_user.voted_down_on? @video
+  = link_to "#{fa_icon "thumbs-down 2x"}".html_safe, welcome_dislike_path(vote:@video.id), method: :post,
+  class:"down", remote: true
+- else
+  = link_to "#{fa_icon "thumbs-o-down 2x"}".html_safe, welcome_dislike_path(vote:@video.id), method: :post,
+  class:"down", remote: true

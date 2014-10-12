@@ -14,15 +14,22 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
-
  */
+#aurthor{
+  float:left;
+}
+#social-media{
+    margin-top: 60px;
+}
 body{
     background: url("mossy-oak.jpg");
     background-attachment: fixed;
 }
-
+.logo{
+    height: 200px;
+}
 .top-ad-logo{
-    height: 150px;
+    height: 200px;
     width: 100%;
 }
 .top-bar{
@@ -33,17 +40,32 @@ body{
     border-left: solid;
     border-left-width: 1px;
     border-left-color:darkgreen ;
-    color: darkgreen;
-
+    color: whitesmoke;
+    /*font-family: 'Anton', sans-serif;*/
+    /*font-family: 'Muli', sans-serif;*/
+    /*font-family: 'Amatic SC', cursive;*/
+    font-size: 1.25em;
+    /*font-family: 'Fjalla One', sans-serif;*/
+    /*font-family: 'Archivo Narrow', sans-serif;*/
+    /*font-family: 'Cuprum', sans-serif;*/
+    font-family: 'Pathway Gothic One', sans-serif;
 }
+
 .row{
-    background: rgba(17, 52, 26, 0.78);
+    background: rgba(11, 35, 17, 0.78);
+}
+.home_container{
+    margin-top: 25px;
 }
 .panel{
-    background: #d9cbb9;
+    background: #eeeeee;
+    /*background: #d9cbb9;*/
     padding: 10px;
     border-radius: 2%;
 
+}
+.top-ad{
+    margin-top: 5%
 }
 li#videos{
     width: 235px;
@@ -53,6 +75,8 @@ li#videos{
 }
 .tiny.round.button{
     background:url("navtest.png") ;
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-size: 1.25em;
 }
 .up{
     padding-left: 5%;

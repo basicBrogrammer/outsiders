@@ -29,6 +29,7 @@ GEM
       tzinfo (~> 1.1)
     acts_as_follower (0.2.1)
     acts_as_votable (0.10.0)
+    addressable (2.3.6)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
     builder (3.2.2)
@@ -44,6 +45,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
+    cookiejar (0.3.2)
     devise (3.2.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -53,14 +55,34 @@ GEM
     dragonfly (1.0.5)
       multi_json (~> 1.0)
       rack
+    em-http-request (1.1.2)
+      addressable (>= 2.3.4)
+      cookiejar
+      em-socksify (>= 0.3)
+      eventmachine (>= 1.0.3)
+      http_parser.rb (>= 0.6.0)
+    em-socksify (0.3.0)
+      eventmachine (>= 1.0.0.beta.4)
     erubis (2.7.0)
     ethon (0.7.1)
       ffi (>= 1.3.0)
+    eventmachine (1.0.3)
     execjs (2.2.1)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.9.1)
       faraday (>= 0.7.4, < 0.10)
+    faye (1.0.3)
+      cookiejar (>= 0.3.0)
+      em-http-request (>= 0.3.0)
+      eventmachine (>= 0.12.0)
+      faye-websocket (>= 0.7.0)
+      multi_json (>= 1.0.0)
+      rack (>= 1.0.0)
+      websocket-driver (>= 0.3.0)
+    faye-websocket (0.7.5)
+      eventmachine (>= 0.12.0)
+      websocket-driver (>= 0.3.5)
     ffi (1.9.3)
     font-awesome-rails (4.1.0.0)
       railties (>= 3.2, < 5.0)
@@ -70,6 +92,7 @@ GEM
       railties (>= 3.1.0)
       sass (>= 3.2.0)
     hike (1.2.3)
+    http_parser.rb (0.6.0)
     i18n (0.6.11)
     jbuilder (2.1.3)
       activesupport (>= 3.0.0, < 5)
@@ -97,6 +120,8 @@ GEM
     orm_adapter (0.5.0)
     pg (0.17.1)
     polyglot (0.3.5)
+    private_pub (1.0.3)
+      faye
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -110,6 +135,11 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.1.4)
       sprockets-rails (~> 2.0)
+    rails_12factor (0.0.2)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.2)
+    rails_stdout_logging (0.0.3)
     railties (4.1.4)
       actionpack (= 4.1.4)
       activesupport (= 4.1.4)
@@ -161,6 +191,7 @@ GEM
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
+    websocket-driver (0.3.5)
 
 PLATFORMS
   ruby
@@ -178,7 +209,9 @@ DEPENDENCIES
   mailboxer
   oembedr
   pg
+  private_pub
   rails (= 4.1.4)
+  rails_12factor
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   simple_form

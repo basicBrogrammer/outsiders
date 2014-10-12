@@ -1,7 +1,18 @@
-.row
-    h1 Users#show
-
-    = @user.email
+.home_container
+  .large-3.columns
+   .panel
+    = current_user.username
     br
-    = image_tag @profpic.image.thumb('200x200#').url if @profpic
+    = image_tag @profpic.image.thumb('200x200#').url if @profpic.image_stored?
+  .large-7.columns
+    = link_to "All",welcome_index_path, class: "tiny round button"
+    = link_to "Deer", welcome_deer_path, class: "tiny round button"
+    = link_to "Duck", welcome_duck_path, class: "tiny round button"
 
+    ul
+      - current_user.videos.each do |video|
+       .panel
+        li#videos
+          = video_embed(video.movie_embed)
+  .large-2.columns
+   div

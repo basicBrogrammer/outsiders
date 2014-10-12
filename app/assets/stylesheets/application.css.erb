@@ -22,7 +22,7 @@
     margin-top: 60px;
 }
 body{
-    background: url("mossy-oak.jpg");
+  background-image: url(<%= asset_path("mossy-oak.jpg") %>);
     background-attachment: fixed;
 }
 .logo{
@@ -33,10 +33,10 @@ body{
     width: 100%;
 }
 .top-bar{
-    background: url("navtest.png");
+    background-image: url(<%= asset_path("navtest.png") %>);
 }
 .top-bar-section li:not(.has-form) a:not(.button){
-    background: url("navtest.png");
+    background-image: url(<%= asset_path("navtest.png") %>);
     border-left: solid;
     border-left-width: 1px;
     border-left-color:darkgreen ;
@@ -74,7 +74,7 @@ li#videos{
     list-style: none;
 }
 .tiny.round.button{
-    background:url("navtest.png") ;
+    background-image: url(<%= asset_path("navtest.png") %>);
     font-family: 'Pathway Gothic One', sans-serif;
     font-size: 1.25em;
 }

@@ -10,17 +10,17 @@ userone = User.create(email: 'userone@email.com', username: "user1", password: '
 usertwo = User.create(email: 'usertwo@email.com', username: "user2", password: 'password')
 userthree = User.create(email: 'userthree@email.com', username: "user3", password: 'password')
 
-Photo.create(description:'user one photo 1',image: File.open(File.join(Rails.root, 'app/assets/images/userone1.jpeg')), user_id: userone.id, profile: true )
-Photo.create(description:'user two photo 1',image: File.open(File.join(Rails.root, 'app/assets/images/usertwo1.jpeg')), user_id: usertwo.id, profile: true )
-Photo.create(description:'user three photo 1',image: File.open(File.join(Rails.root, 'app/assets/images/userthree1.jpeg')), user_id: userthree.id, profile: true )
+#Photo.create(description:'user one photo 1',image: File.open(File.join(Rails.root, 'app/assets/images/userone1.jpeg')), user_id: userone.id, profile: true )
+#Photo.create(description:'user two photo 1',image: File.open(File.join(Rails.root, 'app/assets/images/usertwo1.jpeg')), user_id: usertwo.id, profile: true )
+#Photo.create(description:'user three photo 1',image: File.open(File.join(Rails.root, 'app/assets/images/userthree1.jpeg')), user_id: userthree.id, profile: true )
 
-Photo.create(description:'user one photo 2',image: File.open(File.join(Rails.root, 'app/assets/images/userone2.jpeg')), user_id: userone.id )
-Photo.create(description:'user two photo 2',image: File.open(File.join(Rails.root, 'app/assets/images/usertwo2.jpeg')), user_id: usertwo.id )
-Photo.create(description:'user three photo 2',image: File.open(File.join(Rails.root, 'app/assets/images/userthree2.jpeg')), user_id: userthree.id )
+#Photo.create(description:'user one photo 2',image: File.open(File.join(Rails.root, 'app/assets/images/userone2.jpeg')), user_id: userone.id )
+#Photo.create(description:'user two photo 2',image: File.open(File.join(Rails.root, 'app/assets/images/usertwo2.jpeg')), user_id: usertwo.id )
+#Photo.create(description:'user three photo 2',image: File.open(File.join(Rails.root, 'app/assets/images/userthree2.jpeg')), user_id: userthree.id )
 
-Photo.create(description:'user one photo 3',image: File.open(File.join(Rails.root, 'app/assets/images/userone3.jpeg')), user_id: userone.id )
-Photo.create(description:'user two photo 3',image: File.open(File.join(Rails.root, 'app/assets/images/usertwo3.jpeg')), user_id: usertwo.id )
-Photo.create(description:'user three photo 3',image: File.open(File.join(Rails.root, 'app/assets/images/userthree3.jpeg')), user_id: userthree.id )
+#Photo.create(description:'user one photo 3',image: File.open(File.join(Rails.root, 'app/assets/images/userone3.jpeg')), user_id: userone.id )
+#Photo.create(description:'user two photo 3',image: File.open(File.join(Rails.root, 'app/assets/images/usertwo3.jpeg')), user_id: usertwo.id )
+#Photo.create(description:'user three photo 3',image: File.open(File.join(Rails.root, 'app/assets/images/userthree3.jpeg')), user_id: userthree.id )
 
 Video.create(movie_embed:'https://www.youtube.com/watch?v=J4UwwYu_JiU',summary:"user one video 1", city:"whiteville", state:"nc", user_id: userone.id, huntType: "duck")
 Video.create(movie_embed:'https://www.youtube.com/watch?v=ITtvyl3t4MQ',summary:"user two video 1", city:"raleigh", state:"ca", user_id: usertwo.id, huntType: "duck")

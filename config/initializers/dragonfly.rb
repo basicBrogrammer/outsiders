@@ -10,12 +10,19 @@ Dragonfly.app.configure do
 
   url_format "/media/:job/:name"
 
-  datastore :s3,
-    bucket_name: 'my-bucket',
-    access_key_id: 'AKIAJVB3D2WUO35VLY5A',
-    secret_access_key: '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'
-    #root_path: Rails.root.join('public/system/dragonfly', Rails.env),
-    #server_root: Rails.root.join('public')
+  if Rails.env.development? || Rails.env.test?
+    datastore :file,
+      root_path: Rails.root.join('public/system/dragonfly', Rails.env),
+      server_root: Rails.root.join('public')
+  else
+    datastore :s3,
+      bucket_name: 'outsidershunting',
+      access_key_id: ENV["AWS_ACCESS_KEY_ID"],
+      secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"]
+      #root_path: Rails.root.join('public/system/dragonfly', Rails.env),
+      #server_root: Rails.root.join('public')
+  end
+
 end
 
 # Logger

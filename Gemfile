@@ -16,6 +16,9 @@ gem 'mailboxer'
 gem 'oembedr'
 gem 'pg'
 gem 'private_pub'
+group :production do
+  gem 'rack-cache', :require => 'rack/cache'
+end
 gem 'rails', '4.1.4'
 gem "rails_12factor", group: :production
 gem 'sass-rails', '~> 4.0.3'

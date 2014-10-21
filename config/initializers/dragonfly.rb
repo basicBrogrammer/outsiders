@@ -17,10 +17,8 @@ Dragonfly.app.configure do
   else
     datastore :s3,
       bucket_name: 'outsidershunting',
-      access_key_id: ENV["AWS_ACCESS_KEY_ID"],
-      secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"]
-      #root_path: Rails.root.join('public/system/dragonfly', Rails.env),
-      #server_root: Rails.root.join('public')
+      access_key_id: ENV["S3_KEY"],
+      secret_access_key: ENV["S3_SECRET"]
   end
 
 end

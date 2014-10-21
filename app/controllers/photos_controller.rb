@@ -6,8 +6,10 @@ class PhotosController < ApplicationController
 
   def profpic
     current_profpic = current_user.photos.find_by(profile: true)
-    current_profpic.profile = false
-    current_profpic.save
+    if current_profpic
+      current_profpic.profile = false
+      current_profpic.save
+    end
     new_profpic = current_user.photos.find(params[:photo_id])
     new_profpic.profile = true
     new_profpic.save

@@ -1,30 +1,26 @@
 class PhotosController < ApplicationController
-  before_action :set_photo, only: [:destroy]
+  before_action :set_photo, only: [:update, :destroy]
   def index
     @photos = Photo.where(user_id: params[:user_id])
-  end
-
-  def profpic
-    current_profpic = current_user.photos.find_by(profile: true)
-    if current_profpic
-      current_profpic.profile = false
-      current_profpic.save
-    end
-    new_profpic = current_user.photos.find(params[:photo_id])
-    new_profpic.profile = true
-    new_profpic.save
-    redirect_to root_path
   end
 
   def create
     @photo = Photo.new(photo_params)
     @photo.user_id = current_user.id
-    current_user.profpic(@photo)
     if @photo.save
       redirect_to root_path, notice: 'Photo was successfully uploaded.'
     else
       redirect_to root_path, notice: 'TRY AGAIN PHOTO NOT UPLOADED!'
     end
+  end
+
+  def update
+    oldprofpic(current_user) if photo_params["profile"]
+     if @photo.update(photo_params)
+       redirect_to :back, notice: 'Success!'
+     else
+       redirect_to :back, notice: 'Sorry, there was a problem. Try Again.' 
+     end
   end
 
   def destroy
@@ -35,10 +31,18 @@ class PhotosController < ApplicationController
   private
 
   def set_photo
-    @photo = Photo.find[params[:id]]
+    @photo = Photo.find(params[:id])
   end
 
   def photo_params
     params.require(:photo).permit(:image, :description, :profile)
+  end
+
+  def oldprofpic(user)
+    oldprofpic = Photo.where( user: user, profile: true) 
+    oldprofpic.each do |pic|
+      pic.profile = false
+      pic.save
+    end  
   end
 end

@@ -8,11 +8,4 @@ class User < ActiveRecord::Base
   has_many :videos
   acts_as_voter
 
-
-  def profpic(photo)
-    if photo.profile
-      current_profpic = photos.find_by(profile: true)
-      current_profpic.profile = false
-    end
-  end
 end

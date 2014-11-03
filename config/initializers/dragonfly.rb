@@ -5,8 +5,8 @@ require 'dragonfly/s3_data_store'
 Dragonfly.app.configure do
   plugin :imagemagick
 
-  protect_from_dos_attacks true
-  secret "1bddaecdd355d8b588c605e93810787c73ccdb9f100456cb7d395a965bf0865c"
+  #protect_from_dos_attacks true
+  #secret "1bddaecdd355d8b588c605e93810787c73ccdb9f100456cb7d395a965bf0865c"
 
   url_format "/media/:job/:name"
 
@@ -18,7 +18,8 @@ Dragonfly.app.configure do
     datastore :s3,
       bucket_name: 'outsidershunting',
       access_key_id: ENV["S3_KEY"],
-      secret_access_key: ENV["S3_SECRET"]
+      secret_access_key: ENV["S3_SECRET"],
+      url_scheme: 'https'
   end
 
 end

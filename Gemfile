@@ -4,6 +4,10 @@ ruby '2.1.2'
 
 gem 'acts_as_follower'
 gem 'acts_as_votable'
+group :development do
+  gem "binding_of_caller"
+  gem "better_errors"
+end
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
 gem 'dragonfly'

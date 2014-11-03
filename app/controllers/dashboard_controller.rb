@@ -1,7 +1,6 @@
 class DashboardController < ApplicationController
   before_action
   def index
-    @profpic = @user.photos
   end
 
   private

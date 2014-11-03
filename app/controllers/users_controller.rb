@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show]
   def show
-    @profpic = @user.photos.find_by(profile: true)
+    @profpic = current_user.photos.find_by(profile: true) if current_user
   end
 
   def index

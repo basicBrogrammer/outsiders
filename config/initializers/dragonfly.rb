@@ -19,6 +19,7 @@ Dragonfly.app.configure do
       bucket_name: 'outsidershunting',
       access_key_id: ENV["S3_KEY"],
       secret_access_key: ENV["S3_SECRET"],
+      fog_storage_options: {path_style: true},
       url_scheme: 'https'
   end
 

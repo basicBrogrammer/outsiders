@@ -2,7 +2,6 @@
   ul.small-block-grid-2.medium-block-grid-3.large-block-grid-4
     - @photos.each do |photo|
         li
-          = image_tag photo.image.thumb('150x150#').url if photo.image_stored?
-          = photo.inspect
-          = button_to "Make this your profpic?", {action: "update", id: photo.id, photo: {profile: true}}, method: :put
+          = image_tag photo.image.thumb('150x150#').url, photo.image.remote_url if photo.image_stored?
+          = button_to "Make this your profpic?", {action: "update", id: photo.id, photo: {description: "it worked", profile: 1}}, method: :put
  

@@ -8,7 +8,6 @@ class PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
     @photo.user_id = current_user.id
     if @photo.save
-      binding.pry
       redirect_to root_path, notice: 'Photo was successfully uploaded.'
     else
       redirect_to root_path, notice: 'TRY AGAIN PHOTO NOT UPLOADED!'
@@ -16,7 +15,7 @@ class PhotosController < ApplicationController
   end
 
   def update
-    #profpic(current_user) if photo_params["profile"]
+    oldprofpic(current_user) if photo_params["profile"]
      if @photo.update(photo_params)
        redirect_to :back, notice: 'Success!'
      else
@@ -39,7 +38,7 @@ class PhotosController < ApplicationController
     params.require(:photo).permit(:image, :description, :profile)
   end
 
-  def profpic(user)
+  def oldprofpic(user)
     oldprofpic = Photo.where( user: user, profile: true) 
     oldprofpic.each do |pic|
       pic.profile = false

@@ -17,8 +17,8 @@ Dragonfly.app.configure do
   else
     datastore :s3,
       bucket_name: 'outsidershunting',
-      access_key_id: ENV["S3_KEY"],
-      secret_access_key: ENV["S3_SECRET"],
+      access_key_id: 'AKIAJKTYANEG4KNXJCNA',
+      secret_access_key: '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',
       fog_storage_options: {path_style: true},
       url_scheme: 'https'
   end

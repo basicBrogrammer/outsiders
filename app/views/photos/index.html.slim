@@ -3,5 +3,5 @@
     - @photos.each do |photo|
         li
           = image_tag photo.image.thumb('150x150#').url, photo.image.remote_url if photo.image_stored?
-          = button_to "Make this your profpic?", {action: "update", id: photo.id, photo: {description: "it worked", profile: 1}}, method: :put
+          = button_to "Make this your profpic?", {action: "update", id: photo.id, photo: {profile: 1}}, method: :put
  

@@ -1,8 +1,9 @@
 .home_container
   ul.small-block-grid-2.medium-block-grid-3.large-block-grid-4
    - @users.each do |user|
+    - profpic = user.photos.find_by(profile: true) 
     = link_to
       li
-        = image_tag profpic.image.thumb('150x150#').url, photo.image.remote_url if profpic.image_stored?
+        = image_tag profpic.image.remote_url if profpic.image_stored?
         br
         = link_to "#{user.username}", user_path(user)

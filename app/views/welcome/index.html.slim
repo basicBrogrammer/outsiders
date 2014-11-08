@@ -4,7 +4,7 @@
      .panel
       = current_user.username
       br
-      = image_tag @profpic.image.thumb('200x200#').url if @profpic.present?
+      = image_tag @profpic.image.remote_url if @profpic.present?
     .large-7.columns
       = link_to "All",welcome_index_path, class: "tiny round button"
       = link_to "Deer", welcome_deer_path, class: "tiny round button"

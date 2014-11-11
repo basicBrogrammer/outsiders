@@ -10,8 +10,6 @@ group :development do
 end
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
-gem 'dragonfly'
-gem 'dragonfly-s3_data_store'
 gem "font-awesome-rails"
 gem 'foundation-rails'
 gem 'jbuilder', '~> 2.0'

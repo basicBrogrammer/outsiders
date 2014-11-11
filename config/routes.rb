@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'welcome/deer'
   get 'welcome/duck'
   get 'welcome/index'
+  post 'welcome/index'
   post "welcome/like"
   post "welcome/dislike"
 

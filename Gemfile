@@ -8,6 +8,7 @@ group :development do
   gem "binding_of_caller"
   gem "better_errors"
 end
+gem 'carrierwave'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
 gem "font-awesome-rails"

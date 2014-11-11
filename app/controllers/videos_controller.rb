@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-  before_action :set_photo, only: [:destroy]
+  before_action :set_video, only: [:destroy]
 
   def like
     video = params{:vote}
@@ -30,13 +30,13 @@ class VideosController < ApplicationController
 
   def destroy
     @video.destroy
-    redirect_to root_path, notice: 'Photo was successfully destroyed.'
+    redirect_to root_path, notice: 'Video was successfully destroyed.'
   end
 
   private
 
   def set_video
-    @photo = Video.find[params[:id]]
+    @video = Video.find[params[:id]]
   end
 
   def video_params

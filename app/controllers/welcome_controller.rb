@@ -1,16 +1,13 @@
 class WelcomeController < ApplicationController
   def index
-    @profpic = current_user.photos.find_by(profile: true) if current_user
     @videos = Video.all
   end
 
   def deer
-    @profpic = current_user.photos.find_by(profile: true) if current_user
     @videos = Video.where(huntType: "deer")
   end
 
   def duck
-    @profpic = current_user.photos.find_by(profile: true) if current_user
     @videos = Video.where(huntType: "duck")
   end
 
